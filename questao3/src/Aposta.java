@@ -2,20 +2,18 @@ package questao3.src;
 
 import questao3.lib.InOut;
 
-
-
 public class Aposta {
     int idAposta;
     double valorAposta;
     int repetir;
+    double saldo;
+    Jogo jogo;
+    Jogador jogador;
 
     boolean isFinalizada;
     boolean resultado; 
-
     public void calcularPremio() {
-
-       // double potencialPremio;
-        InOut.MsgDeInformacao("Teste sera que funcionou","Potencial prêmio: ");
+        InOut.MsgDeInformacao("Teste será que funcionou", "Potencial prêmio: ");
     }
 
     public void registrarResultado(boolean resultado) {
@@ -23,12 +21,11 @@ public class Aposta {
         this.resultado = resultado;
 
         if (resultado) {
-            System.out.println("Parabéns! Você venceu esta aposta!");
+            InOut.MsgSemIcone("Parabéns!", "Você venceu esta aposta!");
         } else {
-            System.out.println("Infelizmente, você perdeu nesta aposta.");
+            InOut.MsgSemIcone("Infelizmente", "Você perdeu nesta aposta.");
         }
     }
-
 
     public boolean isFinalizada() {
         return isFinalizada;
@@ -44,5 +41,33 @@ public class Aposta {
 
     public void setResultado(boolean resultado) {
         this.resultado = resultado;
+    }
+
+    public double getValorAposta() {
+        return valorAposta;
+    }
+
+    public void setValorAposta(double valorAposta) {
+        this.valorAposta = valorAposta;
+    }
+
+    public Jogo getJogo() {
+        return jogo;
+    }
+
+    public void setJogo(Jogo jogo) {
+        this.jogo = jogo;
+    }
+
+    public Jogador getJogador() {
+        return jogador;
+    }
+
+    public void setJogador(Jogador jogador) {
+        this.jogador = jogador;
+    }
+
+    public void atualizarSaldo(double valor) {
+        saldo += valor;
     }
 }

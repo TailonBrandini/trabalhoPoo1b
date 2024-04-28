@@ -12,7 +12,6 @@ class Jogo {
     public Jogo(String descricao, double apostaMax) {
         this.descricao = descricao;
         this.apostaMax = apostaMax;
-        InOut.MsgDeAviso("Teste", "Coloquei isso só para não dar erro na importação do InOut.....depois pode tirar");
     }
 
 
