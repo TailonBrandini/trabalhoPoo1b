@@ -1,10 +1,10 @@
 package questao3.src;
 
 public class Credito {
-    double saldo;
-    String validade;
-    String moeda;
-    boolean bloqueado;
+    private double saldo;
+    private String validade;
+    private String moeda;
+    private boolean bloqueado;
 
     public Credito(double saldo, String validade, String moeda, boolean bloqueado) {
         this.saldo = saldo;
@@ -13,7 +13,6 @@ public class Credito {
         this.bloqueado = bloqueado;
     }
 
-    // Getters e Setters
     public double getSaldo() {
         return saldo;
     }

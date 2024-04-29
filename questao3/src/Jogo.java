@@ -1,19 +1,14 @@
-
 package questao3.src;
 
-import questao3.lib.InOut;
-
-class Jogo {
+public class Jogo {
 
     private String descricao;
     private double apostaMax;
-
 
     public Jogo(String descricao, double apostaMax) {
         this.descricao = descricao;
         this.apostaMax = apostaMax;
     }
-
 
     public String getDescricao() {
         return descricao;
@@ -31,4 +26,3 @@ class Jogo {
         this.apostaMax = apostaMax;
     }
 }
-

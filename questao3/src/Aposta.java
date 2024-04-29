@@ -3,17 +3,31 @@ package questao3.src;
 import questao3.lib.InOut;
 
 public class Aposta {
+    private static final double FATOR_PREMIO = 2.0;
     int idAposta;
     double valorAposta;
-    int repetir;
-    double saldo;
     Jogo jogo;
     Jogador jogador;
-
     boolean isFinalizada;
-    boolean resultado; 
+    boolean resultado;
+
+    public Aposta(int idAposta, double valorAposta, Jogo jogo, Jogador jogador) {
+        this.idAposta = idAposta;
+        this.valorAposta = valorAposta;
+        this.jogo = jogo;
+        this.jogador = jogador;
+        this.isFinalizada = true;
+        this.resultado = true;
+    }
+
     public void calcularPremio() {
-        InOut.MsgDeInformacao("Teste será que funcionou", "Potencial prêmio: ");
+        double premio = 2000.0;
+        if (resultado) {
+            premio = valorAposta * FATOR_PREMIO;
+        } else {
+            premio = 0.0;
+        }
+        InOut.MsgSemIcone("Prêmio da Aposta #" + idAposta, "Prêmio: " + premio);
     }
 
     public void registrarResultado(boolean resultado) {
@@ -21,9 +35,9 @@ public class Aposta {
         this.resultado = resultado;
 
         if (resultado) {
-            InOut.MsgSemIcone("Parabéns!", "Você venceu esta aposta!");
+            InOut.MsgDeInformacao("VOCÊ GANHOU A APOSTA","Parabéns! Você venceu esta aposta!");
         } else {
-            InOut.MsgSemIcone("Infelizmente", "Você perdeu nesta aposta.");
+            InOut.MsgDeInformacao("VOCÊ PERDEU A APOSTA","Infelizmente você perdeu nesta aposta.");
         }
     }
 
@@ -31,43 +45,23 @@ public class Aposta {
         return isFinalizada;
     }
 
-    public void setIsFinalizada(boolean isFinalizada) {
-        this.isFinalizada = isFinalizada;
-    }
-
     public boolean getResultado() {
         return resultado;
     }
 
-    public void setResultado(boolean resultado) {
-        this.resultado = resultado;
+    public int getIdAposta() {
+        return idAposta;
     }
 
     public double getValorAposta() {
         return valorAposta;
     }
 
-    public void setValorAposta(double valorAposta) {
-        this.valorAposta = valorAposta;
-    }
-
     public Jogo getJogo() {
         return jogo;
     }
 
-    public void setJogo(Jogo jogo) {
-        this.jogo = jogo;
-    }
-
     public Jogador getJogador() {
         return jogador;
-    }
-
-    public void setJogador(Jogador jogador) {
-        this.jogador = jogador;
-    }
-
-    public void atualizarSaldo(double valor) {
-        saldo += valor;
     }
 }

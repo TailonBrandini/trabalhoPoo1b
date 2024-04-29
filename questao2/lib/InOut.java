@@ -1,4 +1,4 @@
-package questao2;
+package questao2.lib;
 
 import javax.swing.JOptionPane;
 
